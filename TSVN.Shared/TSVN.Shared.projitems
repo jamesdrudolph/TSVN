@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Commands\CommitFileCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\CreatePatchCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\DeleteFileCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\DiffBranchCreate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\DifferencesCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\DiffPreviousCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\DiskBrowserCommand.cs" />

@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Community.VisualStudio.Toolkit;
+using Microsoft.VisualStudio.Shell;
+using SamirBoulema.TSVN.Options;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using Process = System.Diagnostics.Process;
-using SamirBoulema.TSVN.Options;
+using System.Text;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.Shell;
-using Task = System.Threading.Tasks.Task;
-using Community.VisualStudio.Toolkit;
+using System.Xml.Linq;
+using Process = System.Diagnostics.Process;
 using Settings = SamirBoulema.TSVN.Properties.Settings;
+using Task = System.Threading.Tasks.Task;
 
 namespace SamirBoulema.TSVN.Helpers
 {
@@ -146,6 +148,122 @@ namespace SamirBoulema.TSVN.Helpers
             return string.Empty;
         }
 
+        public static async Task DiffBranchCreate(string filePath)
+        {
+            try
+            {
+                var documentView = await VS.Documents.GetActiveDocumentViewAsync();
+
+                // Try to get the current document if we weren't provided a file
+                if (string.IsNullOrEmpty(filePath))
+                {
+                    if (!string.IsNullOrEmpty(documentView?.Document?.FilePath))
+                    {
+                        filePath = documentView.Document.FilePath;
+                    }
+                }
+
+                if (string.IsNullOrEmpty(filePath))
+                {
+                    return;
+                }
+
+                var proc = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = FileHelper.GetSvnExec(),
+                        Arguments = $"log \"{filePath}\" -r 1:HEAD --limit 1 --stop-on-copy --xml",
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        CreateNoWindow = true
+                    }
+                };
+
+                proc.Start();
+
+                var errors = string.Empty;
+                var logXml = string.Empty;
+
+                while (!proc.StandardError.EndOfStream)
+                {
+                    errors += await proc.StandardError.ReadLineAsync();
+                }
+
+                if (!string.IsNullOrEmpty(errors))
+                {
+                    Console.Write(errors);
+                }
+
+                while (!proc.StandardOutput.EndOfStream)
+                {
+                    logXml += await proc.StandardOutput.ReadLineAsync();
+                }
+
+                if (string.IsNullOrEmpty(logXml))
+                {
+                    return;
+                }
+
+                XElement fileInfo = XElement.Parse(logXml);
+                string revision = fileInfo.Element("logentry").Attribute("revision").Value;
+
+                if (string.IsNullOrEmpty(revision))
+                {
+                    return;
+                }
+
+                proc = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = FileHelper.GetSvnExec(),
+                        Arguments = $"cat \"{filePath}\" -r {revision}",
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        CreateNoWindow = true
+                    }
+                };
+
+                proc.Start();
+
+                errors = string.Empty;
+                StringBuilder branchCreate = new StringBuilder();
+
+                while (!proc.StandardError.EndOfStream)
+                {
+                    errors += await proc.StandardError.ReadLineAsync();
+                }
+
+                while (!proc.StandardOutput.EndOfStream)
+                {
+                    branchCreate.AppendLine(await proc.StandardOutput.ReadLineAsync());
+                }
+
+                if (branchCreate.Length <= 0)
+                {
+                    return;
+                }
+
+                string tempFile = Path.GetTempFileName() + ".cs";
+
+                StreamWriter sw = new StreamWriter(tempFile, false, documentView?.Document?.Encoding);
+                await sw.WriteAsync(branchCreate.ToString());
+                await sw.FlushAsync();
+                sw.Close();
+
+                await VS.Commands.ExecuteAsync("Tools.DiffFiles", $"\"{filePath}\" \"{tempFile}\"");
+            }
+            catch (Exception e)
+            {
+                LogHelper.Log(e);
+            }
+
+            return;
+        }
+
         private static async Task ShowMissingSolutionDirMessage()
         {
             await VS.MessageBox.ShowErrorAsync("Missing Working Copy Root Path",
@@ -198,7 +316,7 @@ namespace SamirBoulema.TSVN.Helpers
             var options = await OptionsHelper.GetOptions();
             var closeOnEnd = options.CloseOnEnd ? 1 : 0;
 
-            await StartProcess (tortoiseProc, $"/command:{command} /path:\"{filePath}\" {args} /closeonend:{closeOnEnd}");
+            await StartProcess(tortoiseProc, $"/command:{command} /path:\"{filePath}\" {args} /closeonend:{closeOnEnd}");
         }
     }
 }

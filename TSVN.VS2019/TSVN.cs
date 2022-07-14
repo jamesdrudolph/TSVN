@@ -121,6 +121,7 @@ namespace SamirBoulema.TSVN
         public const int lockFileCommand = 0x0615;
         public const int unlockFileCommand = 0x0616;
         public const int renameFileCommand = 0x0617;
+        public const int diffBranchCreate = 0x0618;
         public const int showOptionsDialogCommand = 0x0614;
         public const int TSVNWindowMenu = 0x2000;
         public const int TSVNWindowMenuGroup = 0x2001;

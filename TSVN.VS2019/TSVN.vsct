@@ -9,7 +9,7 @@
     <Menus>
       <!--Main Menu-->
       <Menu guid="guidTSVNCmdSet" id="TSVNMenu" priority="0x0100" type="Menu">
-		    <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
         <Strings>
           <ButtonText>&amp;Tsvn</ButtonText>
         </Strings>
@@ -42,7 +42,7 @@
           <ButtonText>&amp;Tsvn</ButtonText>
         </Strings>
       </Menu>
-   
+
       <!--Toolbar-->
       <Menu guid="guidTSVNCmdSet" id="Toolbar" type="Toolbar">
         <Strings>
@@ -58,7 +58,7 @@
         </Strings>
       </Menu>
     </Menus>
-    
+
     <Groups>
       <Group guid="guidTSVNCmdSet" id="firstMenuGroup" priority="0x0100">
         <Parent guid="guidTSVNCmdSet" id="TSVNMenu" />
@@ -100,17 +100,17 @@
       <Group guid="guidTSVNCmdSet" id="contextMenuGroup" priority="0x0600">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN" />
       </Group>
-      
+
       <!--Solution Explorer - Folder View - Context Menu-->
       <Group guid="guidTSVNCmdSet" id="contextMenuGroup" priority="0x0200">
         <Parent guid="guidWorkspaceExplorerToolWindowCmdSet" id="idmWSE_ContextMenu" />
       </Group>
-      
+
       <!--Solution Explorer - Folder View - Context Menu-->
       <Group guid="guidTSVNCmdSet" id="contextMenuGroup" priority="0x0200">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_EZDOCWINTAB" />
       </Group>
-      
+
       <Group guid="guidTSVNCmdSet" id="contextMenuGroup" priority="0x0600">
         <Parent guid="HTMLContext" id="HTMLContextMenu" />
       </Group>
@@ -120,7 +120,7 @@
       <Group guid="guidTSVNCmdSet" id="contextMenuGroup" priority="0x0600">
         <Parent guid="ASPXContext" id="ASPXContextMenu" />
       </Group>
-      
+
       <Group guid="guidTSVNCmdSet" id="firstContextMenuGroup" priority="0x0700">
         <Parent guid="guidTSVNCmdSet" id="TSVNContextMenu" />
       </Group>
@@ -149,7 +149,7 @@
         <Parent guid="guidTSVNCmdSet" id="TSVNWindowMenu"/>
       </Group>
     </Groups>
-    
+
     <Buttons>
       <Button guid="guidTSVNCmdSet" id="showChangesCommand" priority="0x0100" type="Button">
         <Parent guid="guidTSVNCmdSet" id="firstMenuGroup" />
@@ -222,7 +222,7 @@
           <ButtonText>Sh&amp;elve...</ButtonText>
         </Strings>
       </Button>
-      
+
       <Button guid="guidTSVNCmdSet" id="unshelveCommand" priority="0x0400" type="Button">
         <Parent guid="guidTSVNCmdSet" id="thirdMenuGroup" />
         <Icon guid="guidImages" id="shelve" />
@@ -230,7 +230,7 @@
           <ButtonText>Unshelve...</ButtonText>
         </Strings>
       </Button>
-        
+
       <Button guid="guidTSVNCmdSet" id="branchCommand" priority="0x0100" type="Button">
         <Parent guid="guidTSVNCmdSet" id="fourthMenuGroup" />
         <Icon guid="guidImages" id="branch" />
@@ -262,7 +262,7 @@
           <ButtonText>&amp;Revert Changes...</ButtonText>
         </Strings>
       </Button>
-      
+
       <Button guid="guidTSVNCmdSet" id="updateToRevisionCommand" priority="0x0200" type="Button">
         <Parent guid="guidTSVNCmdSet" id="fifthMenuGroup" />
         <Icon guid="guidImages" id="fetch" />
@@ -270,7 +270,7 @@
           <ButtonText>Update To Revision...</ButtonText>
         </Strings>
       </Button>
-      
+
       <Button guid="guidTSVNCmdSet" id="cleanupCommand" priority="0x0300" type="Button">
         <Parent guid="guidTSVNCmdSet" id="fifthMenuGroup" />
         <Icon guid="guidImages" id="cleanup" />
@@ -294,7 +294,7 @@
           <ButtonText>Release loc&amp;k...</ButtonText>
         </Strings>
       </Button>
-      
+
       <Button guid="guidTSVNCmdSet" id="showLogFileCommand" priority="0x0100" type="Button">
         <Parent guid="guidTSVNCmdSet" id="firstContextMenuGroup" />
         <Icon guid="guidImages" id="showLog" />
@@ -302,7 +302,7 @@
           <ButtonText>Show Log for file...</ButtonText>
         </Strings>
       </Button>
-      
+
       <Button guid="guidTSVNCmdSet" id="diskBrowserFileCommand" priority="0x0200" type="Button">
         <Parent guid="guidTSVNCmdSet" id="firstContextMenuGroup" />
         <Icon guid="guidImages" id="disk" />
@@ -310,7 +310,7 @@
           <ButtonText>Disk-Browser</ButtonText>
         </Strings>
       </Button>
-      
+
       <Button guid="guidTSVNCmdSet" id="repoBrowserFileCommand" priority="0x0300" type="Button">
         <Parent guid="guidTSVNCmdSet" id="firstContextMenuGroup" />
         <Icon guid="guidImages" id="repo" />
@@ -326,7 +326,7 @@
           <ButtonText>&amp;Blame...</ButtonText>
         </Strings>
       </Button>
-    
+
       <Button guid="guidTSVNCmdSet" id="mergeFileCommand" priority="0x0100" type="Button">
         <Parent guid="guidTSVNCmdSet" id="thirdContextMenuGroup" />
         <Icon guid="guidImages" id="merge" />
@@ -334,7 +334,7 @@
           <ButtonText>Merge...</ButtonText>
         </Strings>
       </Button>
-    
+
       <Button guid="guidTSVNCmdSet" id="updateToRevisionFileCommand" priority="0x0200" type="Button">
         <Parent guid="guidTSVNCmdSet" id="thirdContextMenuGroup" />
         <Icon guid="guidImages" id="fetch" />
@@ -342,7 +342,7 @@
           <ButtonText>Update To Revision...</ButtonText>
         </Strings>
       </Button>
-    
+
       <Button guid="guidTSVNCmdSet" id="propertiesCommand" priority="0x0300" type="Button">
         <Parent guid="guidTSVNCmdSet" id="thirdContextMenuGroup" />
         <Icon guid="guidImages" id="properties" />
@@ -350,7 +350,7 @@
           <ButtonText>Properties...</ButtonText>
         </Strings>
       </Button>
-    
+
       <Button guid="guidTSVNCmdSet" id="updateFileCommand" priority="0x0100" type="Button">
         <Parent guid="guidTSVNCmdSet" id="fourthContextMenuGroup" />
         <Icon guid="guidImages" id="pull" />
@@ -358,7 +358,7 @@
           <ButtonText>Update...</ButtonText>
         </Strings>
       </Button>
-    
+
       <Button guid="guidTSVNCmdSet" id="commitFileCommand" priority="0x0200" type="Button">
         <Parent guid="guidTSVNCmdSet" id="fourthContextMenuGroup" />
         <Icon guid="guidImages" id="commit" />
@@ -399,6 +399,14 @@
         </Strings>
       </Button>
 
+      <Button guid="guidTSVNCmdSet" id="diffBranchCreate" priority="0x0550" type="Button">
+        <Parent guid="guidTSVNCmdSet" id="fourthContextMenuGroup" />
+        <Icon guid="guidImages" id="differences" />
+        <Strings>
+          <ButtonText>Diff with branch create</ButtonText>
+        </Strings>
+      </Button>
+
       <Button guid="guidTSVNCmdSet" id="deleteFileCommand" priority="0x0600" type="Button">
         <Parent guid="guidTSVNCmdSet" id="fourthContextMenuGroup" />
         <Icon guid="guidImages" id="delete" />
@@ -422,7 +430,7 @@
           <ButtonText>Release Lock</ButtonText>
         </Strings>
       </Button>
-      
+
       <Button guid="guidTSVNCmdSet" id="renameFileCommand" priority="0x0900" type="Button">
         <Parent guid="guidTSVNCmdSet" id="fourthContextMenuGroup" />
         <Icon guid="guidImages" id="rename" />
@@ -450,9 +458,9 @@
 
     <!--Menu icons-->
     <Bitmaps>
-      <Bitmap 
-		  guid="guidImages" 
-		  href="../Resources/octicons.png" 
+      <Bitmap
+		  guid="guidImages"
+		  href="../Resources/octicons.png"
 		  usedList="showChanges, pull, push, showLog, revert, branch, merge, differences, blame, repo, resolve, sync, commit, disk, switchImage, cleanup, stash, fetch, add, properties, delete, shelve, lockImage, unlock, rename" />
     </Bitmaps>
   </Commands>
@@ -506,11 +514,11 @@
     </GuidSymbol>
 
     <GuidSymbol name="guidTSVNPkg" value="{f2e68d5a-c95e-4d53-bbc6-072ff3ed9c53}" />
-	  
+
     <GuidSymbol name="guidTSVNCmdSet" value="{65ab72da-3aa4-4e36-8182-b3dbe7ff6b56}">
       <IDSymbol name="Toolbar" value="0x1000" />
       <IDSymbol name="ToolbarGroup" value="0x1050" />
-      
+
       <IDSymbol name="TSVNMenu" value="0x1021" />
       <IDSymbol name="firstMenuGroup" value="0x1020" />
       <IDSymbol name="secondMenuGroup" value="0x1022" />
@@ -539,31 +547,31 @@
       <IDSymbol name="showChangesCommand" value="0x0100" />
       <IDSymbol name="updateCommand" value="0x0101" />
       <IDSymbol name="commitCommand" value="0x0102" />
-      
+
       <IDSymbol name="showLogCommand" value="0x0200" />
       <IDSymbol name="diskBrowserCommand" value="0x0201" />
       <IDSymbol name="repoBrowserCommand" value="0x0202" />
-      
+
       <IDSymbol name="createPatchCommand" value="0x0300" />
       <IDSymbol name="applyPatchCommand" value="0x0301" />
       <IDSymbol name="shelveCommand" value="0x0302" />
       <IDSymbol name="unshelveCommand" value="0x0303" />
-      
+
       <IDSymbol name="branchCommand" value="0x0400" />
       <IDSymbol name="switchCommand" value="0x0401" />
       <IDSymbol name="mergeCommand" value="0x0402" />
-      
+
       <IDSymbol name="revertCommand" value="0x0500" />
       <IDSymbol name="updateToRevisionCommand" value="0x0501" />
       <IDSymbol name="cleanupCommand" value="0x0502" />
       <IDSymbol name="lockCommand" value="0x0503" />
       <IDSymbol name="unlockCommand" value="0x0504" />
 
-      <IDSymbol name="showLogFileCommand" value="0x0600" />   
+      <IDSymbol name="showLogFileCommand" value="0x0600" />
       <IDSymbol name="blameCommand" value="0x0601" />
-      <IDSymbol name="differencesCommand" value="0x0602" />  
-      <IDSymbol name="diskBrowserFileCommand" value="0x0603" /> 
-      <IDSymbol name="repoBrowserFileCommand" value="0x0604" /> 
+      <IDSymbol name="differencesCommand" value="0x0602" />
+      <IDSymbol name="diskBrowserFileCommand" value="0x0603" />
+      <IDSymbol name="repoBrowserFileCommand" value="0x0604" />
       <IDSymbol name="mergeFileCommand" value="0x0605" />
       <IDSymbol name="updateToRevisionFileCommand" value="0x0606" />
       <IDSymbol name="propertiesCommand" value="0x0607" />
@@ -576,7 +584,8 @@
       <IDSymbol name="lockFileCommand" value="0x0615" />
       <IDSymbol name="unlockFileCommand" value="0x0616" />
       <IDSymbol name="renameFileCommand" value="0x0617" />
-      
+      <IDSymbol name="diffBranchCreate" value="0x0618"/>
+
       <IDSymbol name="showOptionsDialogCommand" value="0x0614"/>
 
       <!--Windows Menu-->
@@ -584,8 +593,8 @@
       <IDSymbol name="TSVNWindowMenuGroup" value="0x2001"/>
 
       <IDSymbol name="showToolwindowCommand" value="0x2002" />
-    </GuidSymbol>  
-  
+    </GuidSymbol>
+
     <!-- Solution Explorer folder mode GUIDs and IDs. -->
     <GuidSymbol name="guidWorkspaceExplorerToolWindowCmdSet" value="{cfb400f1-5c60-4f3c-856e-180d28def0b7}">
       <IDSymbol name="idmWSE_ContextMenu" value="0x0002" />
